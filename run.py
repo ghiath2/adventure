@@ -69,3 +69,23 @@ class World:
                 self.use_medkit()
             else:
                 game_functions.fprint("You shiver from the cold.")
+
+    def hallway(self):
+        hero.location = "hallway"
+        print(f"\nHealth: {hero.health}")
+        game_functions.fprint("You are in a wide hallway. It continues on indefinitely.", 2)
+        print("There's no turning back. Will you go on?")
+        print("Enter 'yes' or 'no'.")
+        self.handle_goblin()
+        while True:
+            action = input("\n> ")
+            if action == "yes":
+                self.pit()
+            elif action == "no":
+                game_functions.fprint("You try to call your help but no one is there.")
+            elif action == "m":
+                self.use_medkit()
+            else:
+                game_functions.fprint("You wonder what time it is.")
+
+                

@@ -50,3 +50,22 @@ class World:
                 self.use_medkit()
             else:
                 game_functions.fprint("You sit in total darkness wondering if there's a way out.")
+
+    def cavern(self):
+        hero.location = "cavern"
+        print(f"\nHealth: {hero.health}")
+        game_functions.fprint("You stumble into a dimly lit cavern.", 2)
+        print("You cannot go right or left but the cave continues ahead. Will you go on?")
+        print("Enter 'yes' or 'no'.")
+        self.check_bat_attack()
+        self.handle_goblin()
+        while True:
+            action = input("\n> ")
+            if action == "yes":
+                self.hallway()
+            elif action == "no":
+                game_functions.fprint("You sit down and eat some food you brought with you.")
+            elif action == "m":
+                self.use_medkit()
+            else:
+                game_functions.fprint("You shiver from the cold.")
